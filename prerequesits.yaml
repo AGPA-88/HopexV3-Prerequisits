@@ -90,8 +90,8 @@
                     name: dotnetcore-runtime
                     state: present
 
-          - name: 
-            win_chocolatey: Install .Net Core Hosting Bundle
+          - name: Install .Net Core Hosting Bundle
+            win_chocolatey: 
                     name: dotnetcore-windowshosting
                     state: present
 
