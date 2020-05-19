@@ -5,7 +5,7 @@
           - name: Install IIS Web-Server with sub features and management tools
             win_feature:
                     name: Web-Server
-                    state: latest
+                    state: present
                     include_sub_features: yes
                     include_management_tools: yes
             register: win_feature
@@ -13,17 +13,17 @@
           - name: Install Git
             win_chocolatey:
                     name: git
-                    state: latest
+                    state: present
 
           - name: Instal VsCode
             win_chocolatey:
                     name: vscode
-                    state: latest
+                    state: present
 
           - name: Install SumatraPDF
             win_chocolatey:
                     name: sumatrapdf
-                    state: latest
+                    state: present
 
 
 - name: Users & Groups Configuration
@@ -34,7 +34,7 @@
             win_user:
                     name: svc_marte_user
                     password: p@ssw0rd!
-                    state: latest
+                    state: present
                     groups:
                             - Users
                             - Administrators
@@ -46,7 +46,7 @@
                     user: IIS_IUSRS
                     rights: FullControl
                     type: allow
-                    state: latest
+                    state: present
                     inherit: ContainerInherit, ObjectInherit
                     propagation: 'None'
 
@@ -60,7 +60,7 @@
                     user: IIS_IUSRS
                     rights: FullControl
                     type: allow
-                    state: latest
+                    state: present
                     inherit: ContainerInherit, ObjectInherit
                     propagation: 'None'                
 
@@ -70,7 +70,7 @@
                     user: svc_marte_user
                     rights: FullControl
                     type: allow
-                    state: latest
+                    state: present
                     inherit: ContainerInherit, ObjectInherit
                     propagation: 'None'
             with_items:
@@ -83,19 +83,19 @@
           - name: Install .Net Framework
             win_chocolatey:
                     name: dotnetfx
-                    state: latest
+                    state: present
 
           - name: Install .Net Core Runtime
             win_chocolatey:
                     name: dotnetcore-runtime
-                    state: latest
+                    state: present
 
           - name: 
             win_chocolatey: Install .Net Core Hosting Bundle
                     name: dotnetcore-windowshosting
-                    state: latest
+                    state: present
 
           - name: Install Microsoft Visual C++ Redistributable for Visual Studio 2015
             win_chocolatey:
                     name: vcredist2015
-                    state: latest
+                    state: present
